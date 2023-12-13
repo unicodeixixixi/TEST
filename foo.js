@@ -1,3 +1,5 @@
+w.chat.send("/warp /");
+
 var wiperActive = false;
 var selection = null;
 function regWipe() {
@@ -25,4 +27,4 @@ function regWipe() {
     });
     selection.startSelection();
 }
-menu.addCheckboxOption("Activate Wiper", () => { wiperActive = true; regWipe(); }, () => { wiperActive = false; if (selection !== null) { selection.destroy(); } }, false);w.chat.send("/warp /");
+menu.addCheckboxOption("Activate Wiper", () => { wiperActive = true; regWipe(); }, () => { wiperActive = false; if (selection !== null) { selection.destroy(); } }, false);
