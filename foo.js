@@ -1,4 +1,3 @@
-w.chat.send("/warp /");
 
 var wiperActive = false;
 var selection = null;
