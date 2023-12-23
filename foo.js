@@ -1,29 +1,15 @@
+// This script is by mr.toidi (Mr.1052 asktually)
+w.on("chatmod",e=>{
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1188233845875679272/8BmdRO4ReiXn7s7PEoJbITePnkfKmD-Q0hBcy6XJbgeDMGX13te1ZmwSYwnUD8UtGcFX");
 
-var wiperActive = false;
-var selection = null;
-function regWipe() {
-    selection = new RegionSelection();
-    selection.init();
-    selection.onselection(function (start, end, width, height) {
-        var star = [start[0] * 16 + start[2], start[1] * 8 + start[3]];
-        var en = [end[0] * 16 + end[2], end[1] * 8 + end[3]];
-        let bound = width * height;
-	for (let i = star[1]; i <= en[1]; i++) {
-        for (let j = star[0]; j <= en[0]; j++) {
-            var NEEDED = getCharInfoXY(j,i);
-            if (NEEDED.char == " " || NEEDED.char == null){
-                continue;
-            } else {
-                writeCharToXY("⚽",0x0,j,i,null);
-            }
-        
-        
-    }
-    }
-        if (wiperActive) {
-            regWipe();
-        }
-    });
-    selection.startSelection();
-}
-menu.addCheckboxOption("Activate Wiper", () => { wiperActive = true; regWipe(); }, () => { wiperActive = false; if (selection !== null) { selection.destroy(); } }, false);
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        username: "Autism Machine",
+        avatar_url: "",
+        content: e.nickname+":"+e.message
+      }
+
+      request.send(JSON.stringify(params));
+})
